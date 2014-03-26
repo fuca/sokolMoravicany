@@ -1,0 +1,23 @@
+body {
+font: 16px/1.5 Verdana, "Geneva CE", "Trebuchet MS", lucida, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+div.center {
+text-indent: 2em;
+margin-top: 50px;
+text-shadow: 0px 1px 0px silver;
+}
+
+div.wrapper {
+margin: 200px auto;
+width: 600px;
+}
+
+div.header {
+text-align: center;
+font-size: 40px;
+font-weight: bold;
+text-shadow: 1px 2px 1px grey;
+}

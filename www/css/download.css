@@ -1,0 +1,17 @@
+/* DOWNLOADS */
+	
+form.download {
+	margin: 0px;
+	
+}
+
+form.download fieldset {
+	margin: 5px 0 5px 0;
+	
+}
+	div.file-group {
+		background: #fff;
+		border: 1px solid grey;
+		border-radius: 5px;
+		padding: 0 10px 5px;
+	}

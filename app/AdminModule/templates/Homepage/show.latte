@@ -1,0 +1,10 @@
+{block #title}
+{$article->article_title} | Upozornění
+{/block}
+
+{block #content}
+<div class="art-home-container">
+[<a href="{plink :Admin:Homepage:default}" title="Zpět na nástěnku">Zpět na nástěnku</a>]
+	<h2>{$article->article_title}</h2>
+	<p>{$article->article_content}</p>
+</div>

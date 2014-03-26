@@ -1,0 +1,70 @@
+@import url('./page-style-sections.css');
+
+@import url('./shell.css');
+
+@import url('./homepage.css');
+@import url('./article.css');
+@import url('./section.css');
+@import url('./contact.css');
+@import url('./download.css');
+@import url('./link.css');
+
+@import url('./menu.css');
+@import url('./login-control.css');
+
+
+/* GENERAL CONTENT STYLE SCHEMA */
+
+body {
+	font: 16px/1.5 Verdana, "Geneva CE", "Trebuchet MS", lucida, sans-serif;
+	background: /*#3484d2*/ url('../image/design/bg-fade.png') repeat-x;
+	margin: 0;
+}
+
+body h2 {
+		font-size: 15px;
+}
+
+body a, a:visited, a:hover, a:active, h1, h2 {
+	color: #000;
+}
+
+body h3 {
+	font-size: 12px;
+}
+
+h1 {
+	font-size: 150%;
+
+}
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../image/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+div.flash {
+	color: black;
+	/*text-shadow: -1px 1px 1px black;*/
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+	
+.button:hover {
+	background-color: #C22;
+}
+	
+
+	
+	

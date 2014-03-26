@@ -1,0 +1,29 @@
+<ul class="control-menu">
+	{*<li n:if="$useHomepage">
+		{if $homepage->isCurrent}
+		<span class="active">{$homepage->label}</span>
+		{else}
+		<a href="{$homepage->url}">{$homepage->label}</a>
+		{/if}
+	</li>*}
+
+	{block #menu}
+		{foreach $children as $item}
+			
+				{if $item->isCurrent}
+					<li class="active">
+						<span>{$item->label}</span>
+					{if $renderChildren && count($item->getComponents()) > 0}
+						<ul>
+							{include #menu, children => $item->getComponents()}
+						</ul>
+					{/if}
+				{else}
+					<li>
+					<a href="{$item->url}"><span>{$item->label}</span></a>
+				{/if}
+					</li>
+
+		{/foreach}
+	{/block}
+</ul>

@@ -1,0 +1,52 @@
+	/* NAVIGATION UL */
+	
+	ul.control-menu {
+		text-transform: uppercase;
+		font-size: 14px;
+		/*text-shadow: 1px 1px 1px rgba(0,0,0,0.3);*/
+		text-align: left;
+		background: rgba(0,0,0,0.3);
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	
+	ul.control-menu li {
+		background: #fff;
+		display: block;
+		min-height: 25px;
+		width: auto;
+		border: 1px grey;
+		border-style: none solid solid solid;
+		overflow: hidden;
+		line-height: 25px;
+	}
+	
+	ul.control-menu li:hover {
+		background: #C22 url('../image/design/sec-head-hover.png') no-repeat;
+	}
+	
+	ul.control-menu li.active {
+		background: #C22 url('../image/design/sec-head-active.png') no-repeat;
+		padding: 0 0 0 30px;
+	}
+	
+	
+	ul.control-menu a {
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		padding: 0 0 0 20px;
+	}
+	
+	ul.control-menu a:visited {
+		color: black;
+	}
+	
+	ul.control-menu span {
+		line-height: 25px;
+	}
+	
+	div#breadcrumbs.shell {
+		margin: 10px 0;
+	}

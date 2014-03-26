@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://api.dibiphp.com/1.5/index.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-dibi.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-dibi.drivers.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-dibi.nette.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-dibi.reflection.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-None.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/package-PHP.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DateTime.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DateTimeZone.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/dibi.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiColumnInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiConnection.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiDatabaseInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiDataSource.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiDateTime.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiEvent.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiFileLogger.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiFirebirdDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiFirePhpLogger.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiFluent.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiForeignKeyInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiIndexInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiLiteral.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiMsSql2005Driver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiMsSqlDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiMySqlDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiMySqliDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiNetteExtension.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiNettePanel.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiObject.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiOdbcDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiOracleDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiPdoDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiPostgreDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiResult.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiResultInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiResultIterator.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiRow.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiSqlite3Driver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiSqliteDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiTableInfo.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiTranslator.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/PDO.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/PDOStatement.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/ReflectionClass.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/ReflectionObject.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/ArrayAccess.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/Countable.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/IDataSource.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/IDibiDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/IDibiReflector.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/IDibiResultDriver.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/Iterator.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/IteratorAggregate.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/Reflector.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/Traversable.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiDriverException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiNotImplementedException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiNotSupportedException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiPcreException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/DibiProcedureException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/Exception.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/InvalidArgumentException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/LogicException.html</loc>
+</url>
+<url>
+	<loc>http://api.dibiphp.com/1.5/RuntimeException.html</loc>
+</url>
+</urlset>

@@ -1,0 +1,37 @@
+{layout ../@layout.latte}
+{var $robots => index, follow}
+
+{block title}
+	Kontaktní informace
+{/block}
+
+{block head}
+
+{/block}
+
+{block #left}
+{/block}
+
+{block #right}
+	{control contactBar:contact}
+	
+{/block}
+
+{block content}
+	<div class="home-art-container">
+			<div class="contact">
+		{foreach $contacts as $c}
+			
+				<h2>{$c->user_function|capitalize}</h2>
+				<table>
+					<tr><td></td><td class="bold">{$c->user_name}&nbsp;{$c->user_surname}</td><tr/>
+					<tr><td><img src="{$basePath}/image/design/ico/email.png" alt=""/></td><td><a href="mailto:{$c->user_email}" title="">{$c->user_email}</a></td></tr>
+					{ifset $c->user_phone}
+					<tr><td><img src="{$basePath}/image/design/ico/cell.png" alt=""/></td><td>{$c->user_phone}</td></tr>
+					{/ifset}
+				</table>	
+		{/foreach}
+		</div>
+	</div>
+
+

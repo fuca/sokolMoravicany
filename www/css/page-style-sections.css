@@ -1,0 +1,15 @@
+@import url('./header-section.css');
+@import url('./body-section.css');
+@import url('./footer-section.css');
+
+/* PAGE SECTIONS GENERAL */
+	
+	div.section {
+		/*border: 1px darkorange solid;*/
+		height: auto;
+		min-width: 100%;
+	}
+
+	div#header.section{}
+	div#body.section {}
+	div#footer.section {}

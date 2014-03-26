@@ -1,0 +1,53 @@
+	
+	div.shell {
+		margin: 10px 0;
+	}
+	
+	div.shell-header {
+		border-radius: 5px 5px 0 0;
+		border-width: 1px;
+		border-color: grey;
+		border-style: solid solid none solid;
+		background: #a9aaae url('../image/design/sec-head-grey.png') no-repeat;
+		color: #484848;
+		width: auto;
+		min-height: 25px;
+		text-align: center;
+		
+		text-transform: uppercase;
+		text-shadow: 0px 3px 2px grey;
+		font-size: 12px;
+		font-weight: bold;
+		line-height: 30px;
+	}
+	
+	div.shell-content {
+		text-align: center;
+		border: 1px grey;
+		border-style: none solid solid solid;
+		padding: 15px 0 5px;
+		background: #fff;
+	}
+	
+	div#welcome.shell-content {
+		font-size: .7em;
+		text-align: left;
+		padding: 10px 70px 10px 10px;
+		color: #fff;
+		background: url('../image/design/welcome-bg.png') no-repeat;
+		text-shadow: 0 2px 1px black;
+	}
+	
+	div#contact.shell-content {
+		font-size: .7em;
+		text-align: left;
+		padding: 10px;
+		font-weight: bold;
+		background: url('../image/design/contact-bg.png') no-repeat;
+	}
+	
+	div#pic-anchor {
+		padding: 0;
+		border-style: none;
+		background-color: rgba(0,0,0,0);
+	}

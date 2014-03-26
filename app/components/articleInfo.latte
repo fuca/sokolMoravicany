@@ -1,0 +1,12 @@
+<div class="shell">
+	<div class="shell-header">info o článku</div>
+	<div class="shell-content" id="article-info">
+		<table>
+		<tr><td><img src="{$basePath}/image/design/ico/article_info/author.png"/></td><td>autor <strong>{$article->user_name} {$article->user_surname}</strong></td></tr>
+		<tr><td><img src="{$basePath}/image/design/ico/article_info/connect.png"/><td>datum <strong>{$article->article_added|date:'%d.%m.%Y'}</strong></td></tr>
+		<tr><td><img src="{$basePath}/image/design/ico/article_info/eye.png"/><td>shlédnuto <strong>{$article->article_count}</strong> krát</td></tr>
+		<tr><td><img src="{$basePath}/image/design/ico/article_info/comment.png"/><td>komentářů <strong>{$article->article_comment_count}</strong></td></tr>
+		<tr><td><img src="{$basePath}/image/design/ico/article_info/tree.png"/><td>oddíl <strong>{$article->section_name}</strong></td></tr>
+		</table>
+	</div>
+</div>

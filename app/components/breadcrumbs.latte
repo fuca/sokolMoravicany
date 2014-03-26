@@ -1,0 +1,7 @@
+	{foreach $items as $item}
+		{if $iterator->isLast()}
+			&nbsp;<a href="{$item->url}">{$item->label}</a> 
+		{else}
+			&nbsp;<a href="{$item->url}">{$item->label}</a> &raquo;
+		{/if}
+	{/foreach}

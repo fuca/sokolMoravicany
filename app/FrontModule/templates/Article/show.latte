@@ -1,0 +1,51 @@
+
+{block #title}
+	{$article->article_title} | {$article->section_name}
+{/block}
+
+{block #left}
+{/block}
+
+{block #right}
+	{control articleInfoControl, $article}
+{/block}
+
+{block #content}
+
+<div class="home-art-container">
+
+	<div class="article-detail">
+		{if $article !== NULL}
+				{if $article->article_picture !== NULL}
+					<img class="article-detail-picture" src="{$basePath}/image/content/article/{$article->article_picture}" alt="{$article->article_picture}"/>
+				{else}
+					<img class="article-detail-picture" src="{$basePath}/image/content/article/empty.png" alt="{$article->article_picture}"/>
+				{/if}
+				<div class="article-detail-content">
+					<h2>{$article->article_title}</h2>
+					<em>{!$article->article_note}</em>
+					{if $article->article_picture !== NULL}
+					{*<img src="{$basePath}/image/content/article/{$article->article_picture}" alt=""/>*}
+					{/if}
+					<p>{!$article->article_content}</p>	
+				</div>
+				{if $sections != NULL}
+				{foreach $sections as $s}
+				<form>
+				<fieldset>
+					<legend><img src="{$basePath}/image/design/ico/pin.png" alt=""/></legend>
+					{foreach $s['files'] as $f}
+						<a target="_blank" href="{$basePath}/file/verejne/{$f->file_path}.{$f->file_type}" title="{$f->file_title}"><img src="{$basePath}/image/design/ico/file_type/{$f->file_type}.png" alt="Dokument typu {$f->file_type}"/>{$f->file_title}</a><br/>
+					{/foreach}
+				</fieldset>
+				</form>
+				{/foreach}
+				{/if}
+		{else}
+			<div class="flash-warning">
+				<span>Daný článek nelze zobrazit.</span>
+			</div>
+		{/if}
+	</div>
+
+</div>

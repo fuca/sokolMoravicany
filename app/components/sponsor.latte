@@ -1,0 +1,14 @@
+<div class="shell">
+	<div class="shell-header">
+		Sponzorují nás
+	</div>
+	<div class="shell-content">
+	{foreach $sponsors as $s}
+		{if $s->sponsor_picture != NULL}
+			<a href="{$s->sponsor_url}" title="{$s->sponsor_name}"><img src="{$basePath}{$s->sponsor_picture}" alt="{$s->sponsor_name}"/></a>
+		{else}
+			<a href="{$s->sponsor_url}" title="{$s->sponsor_name}">{$s->sponsor_name}</a>
+		{/if}<br/>
+	{/foreach}
+	</div>
+</div>

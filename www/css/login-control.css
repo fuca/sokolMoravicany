@@ -1,0 +1,13 @@
+	form#frm-loginControl-logInForm {
+		font-size: 10px;
+		margin: 0 10%;
+	}
+	
+	form#frm-loginControl-logInForm input {
+		background: #fff;
+		border: 1px solid grey;
+	}
+	
+	form#frm-loginControl-logInForm label {
+		font-size:10px;
+	}

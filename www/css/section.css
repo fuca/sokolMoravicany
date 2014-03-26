@@ -1,0 +1,29 @@
+/* Sections:default */
+	
+	div.group {
+		background: #fff /*url('../image/design/FrontModule/section/sec-bg.png')*/;
+		border: 1px solid grey;
+		/*border-radius: 5px 5px 0 0;*/
+		
+		min-height: 140px;
+		margin: 5px 0;
+	}
+	
+	div.group img {
+		float: left;
+		max-height: 110px;
+		max-width: 140px;
+		margin: 10px 30px 10px 10px;
+		border: 1px solid #fff;
+	}
+	
+	div.group h2 {
+		background: rgba(223,223,223,.7);
+		line-height: 2em;
+		margin-top: 20px;
+	}
+	
+	div.group-content p {
+		text-indent: 2em;
+		margin: 0 0 10px;
+	}

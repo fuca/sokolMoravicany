@@ -1,0 +1,43 @@
+
+{var $robots => nofollow,noindex}
+
+{block #title}Dokumenty ke stažení {/block}
+
+{block head}
+
+{/block}
+
+{block #left}
+{/block}
+
+{block content}
+<div class="home-art-container">
+	{if count($sections) > 0}
+		<form class="download">
+		{foreach $sections as $s}
+			{if count($s->files) > 0 && $s->file_section_section_id_vis == 2}
+				<div class="file-group">
+				<fieldset>
+				<legend>{$s->file_section_title}</legend>
+					<p><em>{$s->file_section_label}</em></p>
+					<table>
+						{foreach $s->files as $f}
+							<tr><td><img src="{$basePath}/image/design/ico/file_type/{$f->file_type}.png"></td><td><a target="_blank" href="{$f->file_path}">{$f->file_title}</a></td></tr>
+						{/foreach}
+					</table>
+				</fieldset>
+				</div>
+			{else}
+				<div class="flash-warning">
+					<span>Prázdná sekce.</span>
+				</div>
+			{/if}
+		{/foreach}
+		</form>
+	{else}
+		<div class="flash-warning">
+				<span>Žádné dostupné soubory.</span>
+		</div>
+	{/if}
+</div>
+	

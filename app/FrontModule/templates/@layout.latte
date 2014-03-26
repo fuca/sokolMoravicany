@@ -1,0 +1,171 @@
+{**
+ * My Application layout template.
+ *
+ * @copyright  Copyright (c) 2010 Michal Fucik
+ * @package    SokolMor
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="description" content="Nette Framework web application skeleton">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title}{/block} | Tělocvičná jednota Sokol Moravičany</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/photo.js"></script>
+
+	{block head}{/block}
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29521075-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+	{* SECTION HEADER *}
+
+	<div class="section" id="header">
+		<div class="scheme" id="header-upper-stripe-bg"></div>
+		<div class="scheme" id="header-upper-stripe">
+
+			<div class="scheme" id="header-upper-stripe-content">
+				{control upperStripeControl} 
+			</div>
+
+		<div class="scheme" id="reset"></div>
+
+		</div>
+
+		<div class="scheme" id="header-content">
+			<a href="http://www.sokolmoravicany.cz" title="TJ Sokol Moravičany"><div id="header-content-logo"></div></a>
+			<div id="header-content-photo">
+				<ul class="slider">
+				{for $i = 1; $i <= 17; $i++}
+				<li><img src="{$basePath}/image/design/header_photo/{$i}.png" alt=""/></li>
+				{/for}
+				</ul>
+			</div>
+
+		</div>
+
+		
+
+	</div>
+
+	{* SECTION BODY *}
+
+	<div class="section" id="body">
+
+		<div class="scheme" id="body-wrapper">
+
+			{* LEFT SIDE COLUMN -----------------------------------------------*}
+
+			<div class="scheme" id="left-side">
+				<div class="shell">
+					<div class="shell-header">menu</div>
+					{control navigation:mainMenu}
+
+					{if array_search('member', $roles) === "member"}
+						{control memberNavigation:mainMenu}
+					{/if}
+
+					{if array_search('admin', $roles) === "admin"}
+						{control memberNavigation:mainMenu}
+						{control adminNavigation:mainMenu}
+
+					{/if}
+					
+					{if array_search('lecture', $roles) === "lecture"}
+						{control adminNavigation:mainMenu}
+						{control memberNavigation:mainMenu}
+					{/if}
+					
+				</div>
+				{block #left}{/block}
+				{control sponsorControl}
+
+
+			</div>
+
+			{* CENTER COLUMN --------------------------------------------------*}
+
+			<div class="scheme" id="content">
+				<div class="shell" id="breadcrumbs">
+					{control navigation:breadcrumbs}
+				</div>
+				<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+				{include #content}
+
+			</div>
+
+			{* RIGHT SIDE COLUMN ----------------------------------------------*}
+
+			<div class="scheme" id="right-side">
+				
+				<div class="shell">
+					<div class="shell-header">Vítejte</div>
+					<div class="shell-content" id="welcome">
+						na webových stránkách Tělocvičné jednoty Sokol&nbsp;Moravičany.
+					</div>
+				</div>
+				
+				{control loginControl}
+				
+				{block #right}{/block}
+				<div class="shell">
+					<div class="shell-content" id="pic-anchor">
+						<a href="{plink :Front:Rss:default}" title="RSS kanál novinek a aktualit"><img src="{$basePath}/image/design/rss-panel.png" alt="rss-panel"/></a>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="reset"></div>
+
+		</div>
+
+	</div>
+
+
+	{* SECTION FOOTER *}
+
+	<div class="section" id="footer">
+		<div class="scheme" id="footer-stripe"></div>
+		<div class="scheme" id="footer-rest">
+			<div class="scheme" id="footer-content">
+				{block footer}TJ Sokol Moravičany &copy; 2012, Michal Fučík{/block}
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

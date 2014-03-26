@@ -1,0 +1,23 @@
+	/* FOOTER SECTION */
+		div#footer-stripe.scheme {
+			margin: 0;
+			background: url('../image/design/footer-people.png') repeat-x;
+			height: 134px;
+			min-width: 100%;
+			
+		}
+		
+		div#footer-rest.scheme {
+			background: #484848;
+			min-width: 100%;
+			
+		}
+		
+		div#footer-content.scheme {
+			font-size: .8em;
+			color: #222;
+			text-shadow: 0px 3px 2px #555;
+			font-weight: bold;
+			height: 1.8em;
+			text-align: center;
+		}

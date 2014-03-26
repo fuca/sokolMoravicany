@@ -1,0 +1,28 @@
+{dump $timeTable}
+{dump $occupation}
+{dump $days}
+{*dump $affected jenom kdyz budu asociovat podle dne a ne hodiny*}
+
+<table>
+
+<thead>
+	<tr>
+	<th>*</th>
+	{foreach $occupation as $key => $occ}
+		<th></th>
+	{/foreach}
+	</tr>
+</thead>
+
+<tbody>
+	{foreach $days as $key => $day}
+		<tr><td>{$day}</td>
+			{foreach $timeTable as $q}
+				{if $iterator->getCounter()%4 == 0}
+					<td style="background-color:black"></td>
+				{/if}
+			{/foreach}
+		</tr>
+	{/foreach}
+</tbody>
+</table>

@@ -1,0 +1,31 @@
+
+{var $robots => index, follow}
+
+{block title}Odkazy {/block}
+
+{block head}
+{/block}
+
+{block #left}
+{/block}
+
+{block content}
+
+	<div class="home-art-container">
+		<div class="links">
+		{if count($references) != 0}
+			
+			{foreach $references as $ref}
+				<div class="reference">
+					<a href="{$ref->reference_url}" title="{$ref->reference_label}">{$ref->reference_label}</a>
+				</div>
+			{/foreach}
+			
+		{else}
+			<p class="nothing-there">Žádné dostupné odkazy.</p>
+		{/if}
+		</div>
+	</div>
+
+
+

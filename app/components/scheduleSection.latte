@@ -1,0 +1,29 @@
+{*{dump $timeTable}
+{dump $days}
+{dump $occupation}
+{dump $occDays}
+{dump $affected jenom kdyz budu asociovat podle dne a ne hodiny*}
+
+<table>
+
+<tbody>
+	{foreach $days as $key => $day}
+		{if isset($occDays[$key])}
+			<tr><td>{$day}</td>
+				{foreach $occDays[$key] as $part}
+					<td>
+					{foreach $part as $qt}
+						{first}
+							{$timeTable[$qt['schedule_hour']]['begins']} -
+						{/first}
+						{last}
+							{$timeTable[$qt['schedule_hour']]['ends']}
+						{/last}
+					{/foreach}
+					</td>
+				{/foreach}
+			</tr>
+		{/if}
+	{/foreach}
+</tbody>
+</table>

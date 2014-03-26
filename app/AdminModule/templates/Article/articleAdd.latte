@@ -1,0 +1,62 @@
+{block #title}
+	{$title}
+{/block}
+
+
+{block #content}
+
+<div class="home-art-container">
+	{control addArticle begin}
+	{control addArticle errors}
+	<fieldset>
+		<legend><h2>{$title}</h2></legend>
+		{var $form => $control['addArticle']}
+		<fieldset>
+			<legend><h3>{$form['article_title']->label}</h3></legend>
+			{$form['article_title']->control}
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_status']->label}</h3></legend>
+			{$form['article_status']->control}
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_section_id']->label}</h3></legend>
+			{$form['article_section_id']->control}
+		</fieldset>
+
+		{*<fieldset>
+			<legend><h3>{$form['article_visible']->label}</h3></legend>
+			{$form['article_visible']->control}
+		</fieldset>*}
+		<fieldset>
+			<legend><h3>Článek bude zobrazen do následujícího data</h3></legend>
+		{$form['day']->label} {$form['day']->control}. 
+		{$form['month']->label} {$form['month']->control}. 
+		{$form['year']->label} {$form['year']->control}
+		{$form['hour']->label} {$form['hour']->control}:
+		{$form['minute']->label} {$form['minute']->control} <strong>DD:MM:RRRR HH:MM</strong>
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_picture']->label}</h3></legend> 
+			{$form['article_picture']->control} <strong>max. velikost {$maxFileSize|bytes}</strong>
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_note']->label}</h3></legend>
+			{$form['article_note']->control}
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_content']->label}</h3></legend>
+			{$form['article_content']->control}<br/>
+		</fieldset>
+		{*<fieldset>
+			<legend><h3>Připnout sobory</h3></legend>
+		{$form['1']->label}<br/>{$form['1']->control}<br/>
+		{$form['2']->label}<br/>{$form['2']->control}<br/>
+		{$form['3']->label}<br/>{$form['3']->control}<br/>
+		</fieldset>*}
+		<br/>{$form['addArticleButton']->control}
+		
+	</fieldset>
+	{control addArticle end}
+</div>
+{/block}

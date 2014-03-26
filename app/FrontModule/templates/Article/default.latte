@@ -1,0 +1,30 @@
+
+{var $robots => index, follow}
+{var h => 'Aktuálně '}
+	
+{block title}
+	{$h}
+{/block}
+
+{block content}
+<div class="home-art-container">
+{foreach $articles as $art}
+	{if $art->article_expires > $today}
+		<div class="article-thumbnail">
+			<img src="{$basePath}/image/content/article/{$art->article_thumbnail}" alt="{$art->article_thumbnail}"/>
+			<div class="article-thumbnail-content">
+				
+				<span class="article-thumbnail-title">
+					<a href="{link show, id => $art->article_id}" title="{$art->article_title}"><h2>{$art->article_title|truncate:50}</h2></a>
+				</span>
+					<p><strong>{$art->section_name}</strong> | {$art->article_content|truncate:155}&nbsp;<a href="{link show, id => $art->article_id}" title="{$art->article_title}">&raquo;více</a><br/>
+					</p>
+			</div>
+			<div class="reset"></div>
+		</div>
+	{/if}
+{/foreach}
+</div>
+
+
+
