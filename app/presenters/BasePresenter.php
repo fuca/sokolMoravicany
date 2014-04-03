@@ -36,7 +36,6 @@ abstract class BasePresenter extends Presenter {
 	public function beforeRender(){
 		
 		$this->template->roles = array_flip($this->user->getRoles());
-		//array_search('admin', $roles);
 		
 	}
 	
@@ -46,7 +45,7 @@ abstract class BasePresenter extends Presenter {
 	}
 	
 	public function createTemplate($class = NULL) {
-		// inicializace
+		// inicializace texy
 		$texy = new Texy();
 
 		$texy->encoding = 'utf-8';
@@ -81,24 +80,33 @@ abstract class BasePresenter extends Presenter {
 		$nav = new SokolMor\Components\NavigationControl($this, $name);
 		
 		/* TODO: po uvedeni do provozu predelat linky - v db se bude ukladat cela url (kvuli parametrum id u clanku) */
-		$items = $this->models->navigation->getItems();
+		try {
+		    $items = $this->models->navigation->getItems();
+		} catch (DataErrorException $x) {
+		    $this->flashMessage('Omlouváme se, ale komponenta navigace nedostala potřebná data', 'error');
+		}
+		
 		$hp = array_shift($items);
-		$nav->setupHomepage($hp->menu_item_label, $this->link(':'.$hp->menu_item_link. ':'));
+		$nav->setupHomepage($hp->menu_item_label, $this->link(':'.$hp->menu_item_link));
 		$nav->setUseHomepage(TRUE);
 		
 		foreach ($items as $i) {
-			
-			$sec = $nav->add($i->menu_item_label, $this->link(':'.$i->menu_item_link.':'));	
-			//$sec->add('test', $this->link(':Admin:Auth:logIn'));
-			
-			if ($i->menu_item_link === $this->getName()) 
+		    //dump($i->menu_item_link);
+			if ($this->user->isAllowed($i->menu_item_link, 'view')) {
+			    //dump($i->menu_item_link.' '.$this->user->roles[0].' '. $this->user->isAllowed($i->menu_item_link, 'view'));
+			    $sec = $nav->add($i->menu_item_label, $this->link(':'.$i->menu_item_link), $i->visibility);
+			    //dump($this->getName());
+			    if ($i->menu_item_link === $this->getName().':'.$this->getAction()) {
 				$nav->setCurrentNode ($sec);
+			    }
+			}
 		}
 		return $nav;
 	}
 	
+	/* CROSS MODULES CONTROLS FACTORIES */
+	
 	public function createComponentLoginControl($name) {
-		
 		return new SokolMor\Components\LoginControl($this, $name);
 	}
 	
@@ -109,7 +117,6 @@ abstract class BasePresenter extends Presenter {
 	}
 	
 	public function createComponentSponsorControl($name) {
-		/* KDYZ TUHLE TOVARNU POUZIJU, TAK SE POKAZDE PROVEDE DOTAZ DO DB -> naprava - getter pro property sponsors zde */
 		$con = new SokolMor\Components\SponsorControl($this, $name, $this->models->sponsor->getSponsors(FALSE));
 		return $con;
 	}
@@ -131,47 +138,4 @@ abstract class BasePresenter extends Presenter {
 	protected function createComponentRss() {
 	    return new \RssControl();
 	}
-	
-	public function createComponentAdminNavigation($name) {
-		
-		$nav = new \SokolMor\Components\NavigationControl($this, $name);
-		
-		$items = $this->models->navigation->getItems('admin');
-		$hp = array_shift($items);
-		$nav->setupHomepage($hp->admin_menu_item_label, $this->link(':'.$hp->admin_menu_item_link));
-		$nav->setUseHomepage(TRUE);
-		
-		foreach ($items as $i) {
-			
-			$sec = $nav->add($i->admin_menu_item_label, $this->link(':'.$i->admin_menu_item_link));	
-			//$sec->add('test', $this->link(':Admin:Auth:logIn'));
-			
-			if ($i->admin_menu_item_link === $this->getName()) 
-				$nav->setCurrentNode ($sec);
-		}
-		return $nav;
-	}
-	
-	public function createComponentMemberNavigation($name) {
-		
-		$nav = new \SokolMor\Components\NavigationControl($this, $name);
-		
-		$items = $this->models->navigation->getItems('member');
-		$hp = array_shift($items);
-		//dump($items);
-		$nav->setupHomepage($hp->member_menu_item_label, $this->link(':'.$hp->member_menu_item_link. ':'));
-		$nav->setUseHomepage(TRUE);
-		
-		foreach ($items as $i) {
-			
-			$sec = $nav->add($i->member_menu_item_label, $this->link(':'.$i->member_menu_item_link.':'));	
-			//$sec->add('test', $this->link(':Admin:Auth:logIn'));
-			
-			if ($i->member_menu_item_link === $this->getName()) 
-				$nav->setCurrentNode ($sec);
-		}
-		return $nav;
-	}
-
-
 }

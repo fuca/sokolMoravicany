@@ -1,0 +1,11 @@
+<div class="home-art-container">
+    <div class="home-article">
+    <h2>{$title}</h2>
+		{foreach $data as $d}
+			<span class="wall-notice">{$d->section_name}:
+			    <a href="{plink :Admin:Article:showWallPost $d->article_id}" title="{$d->article_title}" class="article-notice">
+				{$d->article_title|truncate:35}</a>
+			</span>
+		{/foreach}
+	</div>
+</div>

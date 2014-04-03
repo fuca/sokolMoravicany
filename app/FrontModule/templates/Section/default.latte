@@ -13,23 +13,25 @@
 {block content}
 
 <div class="home-art-container">
+    <div class="article-thumbnail">
+<h2 class="heading">Seznam aktivních oddílů</h2>
+    </div>
+    {foreach $sections as $s}
+	{if $s->section_id > 2}
+	    
+	    <div class="group">
+		<img src="{$basePath}/image/design/FrontModule/section/{$s->section_picture}" alt="{$s->section_name}-ico"/>
+		<div class="group-content">
+		    <h2>{$s->section_name}</h2>
+		    <p>{$s->section_label}</p>
 
-		{foreach $sections as $s}
-			{if $s->section_id > 2}
-				
-				<div class="group">
-					<img src="{$basePath}/image/design/FrontModule/section/{$s->section_picture}" alt="{$s->section_name}-ico"/>
-					<div class="group-content">
-						<h2>{$s->section_name}</h2>
-						<p>{$s->section_label}</p>
-					
-					
-						<h3>Cvičební hodiny</h3>
-						<p>{control scheduleControl:section, $s->section_id}</p>
-					</div>
-				</div>
 
-			{/if}
-		{/foreach}
-	
+		    <h3>Cvičební hodiny</h3>
+		    <p>{control scheduleControl:section, $s->section_id}</p>
+		</div>
+	    </div>
+
+	{/if}
+    {/foreach}
+
 </div>

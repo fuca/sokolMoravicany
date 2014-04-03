@@ -23,12 +23,15 @@ abstract class BaseModel extends \Nette\Object {
 	
 		return $this->context;
 	}
+	
+	public function setContext($c) {
+	    $this->context = $c;
+	}
 
 	/**
 	* @return \DibiConnection
 	*/
 	final public function getDatabase() {
-	
 		return $this->context->database;
 	}
 	
@@ -39,12 +42,24 @@ abstract class BaseModel extends \Nette\Object {
 	
 		return $this->context->session;
 	}
+	
 	/**
 	 * @return assoc array
 	 */
 	public function getRoles() {
-		
-		return $this->database->select('role_name')->execute()->fetchPairs('id');
+		try {
+		    $res = $this->database->select('*')
+			    ->from('role')
+			    ->orderBy('role_id')->asc()
+			    ->execute()->fetchAssoc('role_id');
+		} catch(Exception $x) {
+		    throw new \DataErrorException($x);
+		}
+		if (!$res) 
+		    $res = array();
+		if (count($res) == 0) 
+		    $res = array('guest');
+		return $res;
 	}
 	
 	/**
@@ -56,9 +71,10 @@ abstract class BaseModel extends \Nette\Object {
 		$tableName = ($tableName === NULL ? $this->tableName : $tableName);
 		
 		if ($tableName !== 'user') {
-			$tmp = $this->database->select('*')->from($tableName)
+			$tmp = $this->database->select('*')
+				->from($tableName)
 				->leftJoin('[user]')->on('[user_id] = ' . $tableName . '_author_id')
-					->join('[address]')->on('[address_id] = user_address_id');
+					->leftJoin('[address]')->on('[address_id] = user_address_id');
 		} else {
 			
 			$tmp = $this->database->select('*')->from($tableName)

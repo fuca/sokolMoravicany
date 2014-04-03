@@ -15,6 +15,9 @@ define('TEMP_DIR', realpath(WWW_DIR. '/../temp'));
 // absolute filesystem path to the content images
 define('IMG_CONTENT_DIR', realpath(WWW_DIR. '/image/content/article'));
 
+// absolute filesystem path to the design images
+define('IMG_DESIGN_DIR', realpath(WWW_DIR. '/image/design'));
+
 // absolute filesystem path to the content 
 define('FILE_DIR', realpath(WWW_DIR. '/file/verejne'));
 

@@ -1,0 +1,17 @@
+<div class="home-art-container">
+    <div class="article-thumbnail"><h2 class="heading">{$title}</h2></div>
+    <div class="home-article">
+	<div class="home-article-content">
+	{if $data !== NULL}
+		{foreach $data as $d}
+			<div class="wall-post">
+				<div class="wall-post-content">
+					 <a href="{plink :Admin:Article:showWallPost $d->article_id}" title=""><h2>{$d->article_title}</h2></a>
+					 <p><strong>{$d->user_nick}</strong> &raquo; {$d->article_content|truncate:500}&nbsp;<a href="{plink :Admin:Article:showWallPost $d->article_id}" title="">&raquo;více</a></p>
+				</div>
+			</div>
+		{/foreach}
+	{/if}
+	</div>
+    </div>
+</div>

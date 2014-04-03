@@ -1,0 +1,18 @@
+{* login control view *}
+
+<div class="shell">
+	<div class="shell-header">{$title}</div>
+		<div class="shell-content">
+		{if !isset($data)}
+			{control logInForm}
+		{else}
+			<img src="{$basePath}/image/design/ico/people/{$data['gender']}.png" class="user-thumbnail"/>
+			</br>
+			<a class="user-name" href="{plink ':Admin:User:detail'}">{$data['name']} {$data['surname']}</a>
+			<form action="{plink ':Admin:Auth:logOut'}">
+				<input type="submit" value="Odhlásit" class="button"/>
+			</form>
+		{/if}
+		</div>
+</div>
+

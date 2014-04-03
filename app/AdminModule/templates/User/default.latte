@@ -1,3 +1,18 @@
+{block #title}
+Správa uživatelů
+{/block}
+
+{block #left}	
+{/block}
 
 {block #content}
-admin:user:default
+<div class="home-art-container">
+<div class="article-thumbnail"><a href="{plink :Admin:User:addUser}"><h3 class="heading">Přidat uživatele</h3></a>
+	
+    </div>
+    <div class="home-art-container">
+	<div class="data-grid">
+	    {control usersGrid}
+	</div>
+    </div>
+</div>

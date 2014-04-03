@@ -22,12 +22,21 @@
 		line-height: 25px;
 	}
 	
-	ul.control-menu li:hover {
+	ul.control-menu li.public:hover {
 		background: #C22 url('../image/design/sec-head-hover.png') no-repeat;
 	}
 	
-	ul.control-menu li.active {
+	ul.control-menu li#active.public {
 		background: #C22 url('../image/design/sec-head-active.png') no-repeat;
+		padding: 0 0 0 30px;
+	}
+	
+	ul.control-menu li.admin:hover {
+		background: #FF8000 url('../image/design/sec-head-hover.png') no-repeat;
+	}
+	
+	ul.control-menu li#active.admin {
+		background: #FF8000 url('../image/design/sec-head-active.png') no-repeat;
 		padding: 0 0 0 30px;
 	}
 	

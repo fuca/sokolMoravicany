@@ -1,0 +1,60 @@
+
+{block #title}
+{if $article}
+    {$article->article_title} | {$article->section_name}
+{/if}
+{/block}
+
+{block #left}
+{/block}
+
+{block #right}
+{if $article}
+    {control articleInfoControl, $article}
+{/if}
+{/block}
+
+{block #content}
+
+
+{if $article}
+    <div class="home-art-container">
+
+	<div class="article-detail">
+	    <div class="article-detail-content">
+		<h2>{$article->article_title}</h2>
+		<em>{!$article->article_note}</em>
+		<p>{!$article->article_content}</p>	
+	    </div>
+	    {if $sections != NULL}
+		{foreach $sections as $s}
+		    <form>
+			<fieldset>
+			    <legend><img src="{$basePath}/image/design/ico/pin.png" alt=""/></legend>
+				{foreach $s['files'] as $f}
+				    {if $f->file_title == "" || $f->file_title == NULL}
+					{var $fTitle => $f->file_path}
+				    {else}
+					{var $fTitle => $f->file_title}
+				    {/if}
+				<a target="_blank" href="{$basePath}/file/verejne/sekce/{$s->file_section_id}/{$f->file_path}" title="{$fTitle}">
+				    <img class="file-type-ico" src="{$basePath}/image/design/ico/file_type/{$f->file_type}.png" alt="Dokument typu {$f->file_type}"/>{$fTitle}
+				</a><br/>
+			    {/foreach}
+			</fieldset>
+		    </form>
+		{/foreach}
+	    {/if}
+	    	{control comments:list}
+	{if $comments}
+	    {control addCommentForm}
+	
+
+    {/if}
+	    	</div>
+
+    </div>
+	{/if}
+
+
+

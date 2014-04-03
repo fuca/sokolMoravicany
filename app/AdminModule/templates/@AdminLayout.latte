@@ -7,11 +7,11 @@
  * @param string   $basePath web base path
  * @param string   $robots   tell robots how to index the content of a page (optional)
  * @param array    $flashes  flash messages
- *}
+*}
 
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 	<meta name="description" content="Nette Framework web application skeleton">
@@ -19,47 +19,85 @@
 
 	<title>{block title}{/block} | Tělocvičná jednota Sokol Moravičany</title>
 
+	<link rel="stylesheet" media="print" href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/dateInput.css" type="text/css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+		
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/timepicker.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script> 
+	<script type="text/javascript" src="{$basePath}/js/jquery-1.9.1.min.js"></script>
+	<script type='text/javascript' src='{$basePath}/js/jquery-ui-1.10.2.custom.min.js'></script>
+	<script type='text/javascript' src='{$basePath}/js/jquery-ui-timepicker-addon.js'></script>
+	<script type='text/javascript' src='{$basePath}/js/dateInput.js'></script>
 	<script type="text/javascript" src="{$basePath}/js/jquery.cycle.all.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/photo.js"></script>
 
+	<script>
+	    $(document).ready(function() {
+		$('input[data-dateinput-type]').dateinput({
+		datetime: {
+		    dateFormat: 'd.m.yy',
+				    timeFormat: 'H:mm',
+				    options: {
+					changeYear: true
+				    }
+				},
+				'datetime-local': {
+		    dateFormat: 'd.m.yy',
+				    timeFormat: 'H:mm'
+				},
+				date: {
+		    dateFormat: 'd.m.yy'
+				},
+				month: {
+		    dateFormat: 'MM yy'
+				},
+				week: {
+		    dateFormat: "w. 'týden' yy"
+				},
+				time: {
+		    timeFormat: 'H:mm'
+				},
+				options: {
+				    closeText: "Close"
+				}
+			    });
+		});
+	</script>
 	{block head}{/block}
-</head>
+    </head>
 
-<body>
-
-
-
-{* SECTION HEADER *}
+    <body>
+	{* SECTION HEADER *}
 
 	<div class="section" id="header">
-		<div class="scheme" id="header-upper-stripe-bg"></div>
-		<div class="scheme" id="header-upper-stripe">
+	    <div class="scheme" id="header-upper-stripe-bg"></div>
+	    <div class="scheme" id="header-upper-stripe">
 
-			<div class="scheme" id="header-upper-stripe-content">
-				{control upperStripeControl} 
-			</div>
+		<div class="scheme" id="header-upper-stripe-content">
+		    {control upperStripeControl} 
+		</div>
 
 		<div class="scheme" id="reset"></div>
 
+	    </div>
+
+	    <div class="scheme" id="header-content">
+		<div id="header-content-logo"></div>
+		<div id="header-content-photo">
+		    <ul class="slider">
+			{for $i = 1; $i <= 17; $i++}
+			    <li><img src="{$basePath}/image/design/header_photo/{$i}.png" alt=""/></li>
+			    {/for}
+		    </ul>
 		</div>
 
-		<div class="scheme" id="header-content">
-			<div id="header-content-logo"></div>
-			<div id="header-content-photo">
-				<ul class="slider">
-				{for $i = 1; $i <= 17; $i++}
-				<li><img src="{$basePath}/image/design/header_photo/{$i}.png" alt=""/></li>
-				{/for}
-				</ul>
-			</div>
-
-		</div>
+	    </div>
 
 
 	</div>
@@ -68,84 +106,74 @@
 
 	<div class="section" id="body">
 
-		<div class="scheme" id="body-wrapper">
+	    <div class="scheme" id="body-wrapper">
 
-			<div class="scheme" id="left-side">
+		<div class="scheme" id="left-side">
 
-				<div class="shell">
-					<div class="shell-header">menu</div>
-					{control navigation:mainMenu}
-					{control memberNavigation:mainMenu}
+		    <div class="shell">
+			<div class="shell-header">menu</div>
+			{control navigation:mainMenu}
+		    </div>
 
-					{if array_search('admin', $roles) === "admin"}
-						{control adminNavigation:mainMenu}
-					{/if}
+		    {block #left}
+		    {/block}
 
-					{if array_search('lecture', $roles) === "lecture"}
-						{control adminNavigation:mainMenu}
-					{/if}
-				</div>
+		    {control sponsorControl}
+		</div>
 
-				{block #left}
-				{/block}
-				
-				{control sponsorControl}
-			
-			</div>
+		<div class="scheme" id="content">
+		    <div class="shell" id="breadcrumbs">
+			{control navigation:breadcrumbs}
+		    </div>
 
-			<div class="scheme" id="content">
-				<div class="shell" id="breadcrumbs">
-					{control memberNavigation:breadcrumbs}
-				</div>
+		    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-				<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
-				{include #content}
-
-			</div>
-
-			<div class="scheme" id="right-side">
-				
-					<div class="shell">
-						<div class="shell-header">Vítejte</div>
-						<div class="shell-content" id="welcome">
-							na webových stránkách Tělovýchovné jednoty Sokol&nbsp;Moravičany.
-						</div>
-						
-					</div>
-				
-				{control loginControl}
-				{block #right}
-					
-				{/block}
-				<div class="shell">
-				<div class="shell-content" id="pic-anchor">
-					<a href="{plink :Front:Rss:default}" title="RSS kanál novinek a aktualit"><img src="{$basePath}/image/design/rss-panel.png" alt="rss-panel"/></a>
-				</div>
-				</div>
-				
-			</div>
-
-			<div class="reset"></div>			
+		    {include #content}
 
 		</div>
+
+		<div class="scheme" id="right-side">
+
+		    <div class="shell">
+			<div class="shell-header">Vítejte</div>
+			<div class="shell-content" id="welcome">
+			    na webových stránkách Tělovýchovné jednoty Sokol&nbsp;Moravičany.
+			</div>
+
+		    </div>
+
+		    {control loginControl}
+		    {block #right}
+
+		    {/block}
+		    <div class="shell">
+			<div class="shell-content" id="pic-anchor">
+			    <a href="{plink :Front:Rss:default}" title="RSS kanál novinek a aktualit"><img src="{$basePath}/image/design/rss-panel.png" alt="rss-panel"/></a>
+			</div>
+		    </div>
+
+		</div>
+
+		<div class="reset"></div>			
+
+	    </div>
 
 	</div>
 
 	{* SECTION FOOTER *}
 
 	<div class="section" id="footer">
-		<div class="scheme" id="footer-stripe"></div>
-		<div class="scheme" id="footer-rest">
-			<div class="scheme" id="footer-content">
-				{block footer}TJ Sokol Moravičany &copy; 2012, Michal Fučík{/block}
-			</div>
+	    <div class="scheme" id="footer-stripe"></div>
+	    <div class="scheme" id="footer-rest">
+		<div class="scheme" id="footer-content">
+		    {block footer}TJ Sokol Moravičany &copy; 2012, Michal Fučík{/block}
 		</div>
+	    </div>
 
 	</div>
 
 
 
 
-</body>
+    </body>
 </html>

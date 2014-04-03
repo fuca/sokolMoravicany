@@ -1,8 +1,0 @@
-<div class="shell">
-	<div class="shell-header">{$title}</div>
-	<div class="shell-content" id="wall-notice">
-		{foreach $data as $d}
-			<span><strong>{$d->section_name}:</strong> <a href="{plink :Admin:Homepage:Show, $d->article_id}" title="{$d->article_title}" class="article-notice">{$d->article_title|truncate:200}</a></span><br/>
-		{/foreach}
-	</div>
-</div>

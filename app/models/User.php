@@ -6,27 +6,39 @@ namespace SokolMor;
  * @author Michal Fucik
  * @package SokolMor
  */
-
 class User extends \DibiRow {
-	
-	public function __construct($arr = array()) {
 
-		return parent::__construct($arr);
-	}
+    private $sectionModel;
 
-	public function save() {
+    public function setSectionModel(Models\SectionModel $sectionModel) {
+	$this->sectionModel = $sectionModel;
+    }
 
-		return dibi::update('user', $this->toArray())
-				->where('id = %i', $this->id)->execute();
-	}
+    public static function getGenderSelect() {
+	return array('m' => 'Muž', 'f' => 'Žena');
+    }
 
-	public function create() {
+    public function __construct($arr = array()) {
 
-		return dibi::insert('user', $this->toArray())->execute();
-	}
+	return parent::__construct($arr);
+    }
+    
+    public function getFormSections() {
+	if ($this->offsetExists('user_sections'))
+	    return $this->offsetGet('user_sections');
+	return array();
+    }
+    
+    public function getId() {
+	if ($this->offsetExists('user_id'))
+	    return $this->offsetGet ('user_id');
+	return NULL;
+    }
+    
+    public function setId($id) {
+	if (!is_numeric($id))
+	    throw new \Nette\InvalidStateException("Argument id has to be type of numeric, '$id' given");
+	$this->offsetSet('user_id', $id);
+    }
 
-	public function delete() {
-
-		return dibi::delete('user')->where('id = %i', $this->id)->execute();
-	}
 }

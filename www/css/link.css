@@ -1,14 +1,21 @@
 /* Link:default */
-	
-	div.links {
-		border: 1px solid grey;
-		border-radius: 5px;
-		background: #fff;
-		padding: 10px;
-	}
-	
-	div.scheme {
-		/*border: 1px black dashed;*/
-		width: 960px;
-		margin: auto;
-	}
+
+div.links {
+    border: 1px solid grey;
+    background: #fff;
+    padding: 0 0 10px;
+}
+
+div.links a {
+    margin: 0 10px;
+}
+
+div.scheme {
+    width: 960px;
+    margin: auto;
+}
+
+div.links h2 {
+    background: rgba(223,223,223,.7);
+    padding: 10px;
+}

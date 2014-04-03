@@ -534,14 +534,4 @@ class DibiFluent extends DibiObject implements IDataSource
 		}
 		$this->cursor = & $foo;
 	}
-
-	/**
-	 * Pouzivat jen v pripade nouze
-	 */
-	public function _change_where_separator($from, $to) {
-		foreach ($this->clauses['WHERE'] as $key => $value) {
-			if ($value === $from) $this->clauses['WHERE'][$key] = $to;
-		}
-	}
-
 }

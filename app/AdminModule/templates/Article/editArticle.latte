@@ -1,0 +1,69 @@
+{* editArticle template *}
+{block #title}
+	{$title}
+{/block}
+
+{block #content}
+
+<div class="home-art-container">
+	{form editArticleForm}
+	<fieldset>
+		<legend><h2>{$title}</h2></legend>
+		
+		<fieldset>
+			<legend><h3>{$form['article_title']->label}</h3></legend>
+			{$form['article_title']->control}
+		</fieldset>
+		<fieldset class="article-form-fieldset">
+			<legend><h3>{$form['article_status']->label}</h3></legend>
+			{$form['article_status']->control} 
+		</fieldset>
+		<fieldset class="article-form-fieldset">
+		    <legend><h3>{$form['article_visible']->label}</h3></legend>
+		    {$form['article_visible']->control}
+		</fieldset>
+		<fieldset class="article-form-fieldset">
+			<legend><h3>Článek bude zobrazen do následujícího data</h3></legend>
+		    {$form['article_expires']->control}
+		</fieldset>
+		
+		<fieldset class="article-form-fieldset">
+			<legend><h3>{$form['article_section_id']->label}</h3></legend>
+			{$form['article_section_id']->control}
+		</fieldset>
+		<fieldset class="article-form-fieldset">
+		    <legend><h3>{$form['article_type']->label}</h3></legend>
+		    {$form['article_type']->control}
+		</fieldset>
+		<fieldset>
+		    <legend><h3>Aktuální</h3></legend>
+		    <img class="article-form-overview" src="{$basePath}/image/content/article/{$form['article_pic_present']->value}" />
+		</fieldset>
+		<fieldset style="clear:both">
+			<legend><h3>{$form['article_picture']->label}</h3></legend> 
+			{$form['article_picture']->control} <strong>Maximální velikost {$form['article_picture']->options['description']|bytes}</strong>&nbsp;
+			
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_note']->label}</h3></legend>
+			{$form['article_note']->control}
+		</fieldset>
+		<fieldset>
+			<legend><h3>{$form['article_content']->label}</h3></legend>
+			{$form['article_content']->control}<br/>
+		</fieldset>
+		<fieldset>
+			<legend><h3>Připnout sobory</h3></legend>
+		{$form['1']->label}&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;{$form['l1']->label}&nbsp;{$form['l1']->control}
+		    {$form['1']->control}{if $form['l1']->value !== ""}{$form['remove1']->control}{/if}<br/>
+		{$form['2']->label}&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;{$form['l2']->label}&nbsp;{$form['l2']->control}
+		    {$form['2']->control}{if $form['l2']->value !== ""}{$form['remove2']->control}{/if}<br/>
+		{$form['3']->label}&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;{$form['l3']->label}&nbsp;{$form['l3']->control}
+		    {$form['3']->control}{if $form['l3']->value !== ""}{$form['remove3']->control}{/if}<br/>
+		</fieldset>
+		<br/>{$form['addArticleButton']->control}
+		
+	</fieldset>
+	{/form}
+</div>
+{/block}

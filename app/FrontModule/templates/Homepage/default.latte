@@ -5,25 +5,25 @@
 {block head}{/block}
 
 {block #left}
-	
+
 {/block}
 
 {block content}
-	
+
 <div class="home-art-container">
-{foreach $articles as $art}
-	
-		<div class="home-article">
-<img src="{$basePath}/image/content/article/{$art->article_picture}" alt=""/>
-			
-			<h2>{!$art->article_title}</h2>
-			<div class="home-article-content">
-				{!$art->article_content}
-				<em>{!$art->article_note}</em>
-				<div class="reset"></div>
-			</div>
-		</div>
-{/foreach}
+    {foreach $articles as $art}
+
+	<div class="home-article">
+	    <img src="{$basePath}/image/content/article/{$art->article_picture}" alt=""/>
+
+	    <h2>{!$art->article_title}</h2>
+	    <div class="home-article-content">
+		{!$art->article_content}
+		<em>{!$art->article_note}</em>
+		<div class="reset"></div>
+	    </div>
+	</div>
+    {/foreach}
 </div>
 
 

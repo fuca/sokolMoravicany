@@ -1,0 +1,12 @@
+{* Latte template *}
+<h2>{$heading}</h2>
+{if $comments}
+    {foreach $comments as $c}
+	<p>[{$c->comment_id}] {$c->comment_added|date:'j. n. Y H:i'} | {$c->comment_author}
+	    </br>
+	 {$c->comment_content}
+	 </p>
+    {/foreach}
+{else}
+    {$noData}
+{/if}

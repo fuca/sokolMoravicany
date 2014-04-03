@@ -3,6 +3,13 @@
 		margin: 0 10%;
 	}
 	
+	form#frm-loginControl-logInForm ul li {
+		list-style: none;
+		text-align: left;
+		font-weight: bold;
+		color: #EE0000;
+	}
+	
 	form#frm-loginControl-logInForm input {
 		background: #fff;
 		border: 1px solid grey;

@@ -7,14 +7,17 @@ namespace SokolMor\Models;
  *
  * @author Michal Fucik
  */
-
 final class WallNoticeModel extends BaseModel {
 
-	public function getNotices() {
-		
-		$data = $this->getAll('article')->join('section')->on('section_id = article_section_id')
-				->where('[article_type] = %s','notice')->orderBy('article_added', 'DESC')
-				->execute()->fetchAll();
-		return $data;
+    public function getNotices() {
+	try {
+	    $data = $this->getAll('article')->leftJoin('section')->on('section_id = article_section_id')
+			    ->where('[article_type] = %s', 'ntc')->orderBy('article_added', 'DESC')
+			    ->execute()->fetchAll();
+	} catch (Exception $e) {
+	    throw new \DataErrorException($e);
 	}
+	return $data;
+    }
+
 }

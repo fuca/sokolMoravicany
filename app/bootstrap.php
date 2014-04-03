@@ -3,7 +3,8 @@
 /**
  * My Application bootstrap file.
  */
-use Nette\Application\Routers\Route;
+use Nette\Application\Routers\Route,
+    Vodacek\Forms\Controls\DateInput;
 
 
 // Load Nette Framework
@@ -15,7 +16,7 @@ $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 //$configurator->setProductionMode($configurator::AUTO);
-$configurator->setProductionMode(TRUE);
+$configurator->setProductionMode(FALSE);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
@@ -49,7 +50,8 @@ $container->router[] = new Route('externi-odkazy', 'Front:Link:default');
 $container->router[] = new Route('rss-feed', 'Front:Rss:default');
 $container->router[] = new Route('<presenter>/<action>[/<id>]','Front:Homepage:default');
 
-
+// register form addons
+DateInput::register();
 
 // Configure and run the application!
 $container->application->run();

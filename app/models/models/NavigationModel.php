@@ -25,7 +25,10 @@ final class NavigationModel extends BaseModel {
 			$mode .= '_';
 		}
 		
-		$items = $this->database->select('*')->from($mode.'menu_item')->execute()->setRowClass('SokolMor\\Menu_item')->fetchAssoc($mode.'menu_item_id');
+		$items = $this->database->select('*, resources.link AS menu_item_link')->from($mode.'menu_item')
+			->innerJoin('resources')->using('(resource_id)')
+			->execute()->setRowClass('SokolMor\\Menu_item')
+			->fetchAssoc($mode.'menu_item_id');
 		
 		//$tmp = array();
 		

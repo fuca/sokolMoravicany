@@ -13,7 +13,7 @@ use Nette\Object,
  * @package SokolMor
  */
 
-final class Authenticator extends Object implements IAuthenticator {
+final class Authenticator extends Object implements IAuthenticator { 
 	
 	/** @var SokolMor\Models\UserModel */
 	private $model;
@@ -34,12 +34,12 @@ final class Authenticator extends Object implements IAuthenticator {
 		
 		$user = $this->model->getByLogin($username);
 		
-		if (!$user) {
-            throw new AuthenticationException("User with login '$username' not found", self::IDENTITY_NOT_FOUND);
+	if (!$user) {
+            throw new AuthenticationException("Uživatel '$username' neexistuje", self::IDENTITY_NOT_FOUND);
         }
-		
+	
         if ($user->user_password != $saltedHash) {
-            throw new AuthenticationException('Wrong password', self::INVALID_CREDENTIAL);
+            throw new AuthenticationException('Špatné heslo', self::INVALID_CREDENTIAL);
         }
 		
 		$this->model->setLastLogin($user->user_id);
@@ -53,7 +53,6 @@ final class Authenticator extends Object implements IAuthenticator {
 		$identity->picture = $user->user_picture;
 		
 		return $identity;	
-	}
-	
+        }
 }
 
